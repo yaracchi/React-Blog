@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Blog from './BlogList';
-
+ 
 
 const Home = () => {
     /*const handleClickArgument = (name, e) => {

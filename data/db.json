@@ -1,0 +1,25 @@
+{ 
+  "blogs": [
+    {
+        "title":"'Machine learning introduction'",
+        "body": "'hey......'",
+        "author":"'yara'",
+        "id":1
+    },
+    {
+        "title":"'Machine learning introduction'",
+        "body": "'hey......'",
+        "author":"'lamia'",
+        "id":1
+    },
+    {
+        "title":"'Machine learning introduction'",
+        "body": "'hey......'",
+        "author":"'hadjer'",
+        "id":1
+    }
+    
+  ]
+
+
+}
