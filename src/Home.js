@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import Blog from './BlogList';
+import useFetch from './useFetch';
  
 
 const Home = () => {
@@ -17,45 +17,14 @@ const Home = () => {
      //<Blog blogs ={blogs.filter( (blog) => blog.author === "yara" )} title = "Yara's blogs" />
      // <button onClick={() => setName("lamia")}>change name</button>
 
-    const [blogs, setBlogs] = useState(null)  
-    const [isPending,setIsPending] = useState(true)
-    const [error,setError] = useState(null)//want to output it to the browser=> store in state
-    //const [name, setName] = useState('yara')
+     //const [name, setName] = useState('yara')
     /*const handleDelete = (id) => {
         //set new value of blogs to all except the id one deleted 
         const newblogs = blogs.filter(blog=> blog.id !== id )
         setBlogs(newblogs)
     }*/
-    useEffect(() => {
-        //can use async function and await to fitch
-        //get request
-        //its asynchronis
-        setTimeout(() => { //simulate a real get request that takes time
-            fetch('http://localhost:8000/blogs') //return a promise
-                .then(res => {
-                    
-                    if(!res.ok){//check the reqponse object to see if there is any error
-                       //throw our own error
-                       throw Error('couldnt fetch the data for that ressource')
-                       
-                    }
-                    return res.json() //its asynchronis
+    const {data :blogs,isPending,error} = useFetch('http://localhost:8000/blogs')
 
-                }) //access promise
-                .then( (data) => {
-                    setBlogs(data)
-                    setIsPending(false)
-                    setError(null)
-                })
-                .catch(err =>
-                     {
-                        setError(err.message)
-                        setIsPending(false)
-                    })
-        }, 1000);
-        
-
-    }, []);
     //conditional rending: 2nd thing will run only id 1st is true
     return ( 
        <div className="home">
