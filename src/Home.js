@@ -15,28 +15,36 @@ const Home = () => {
      */
      //const [name, setName] = useState('yara');
      //<Blog blogs ={blogs.filter( (blog) => blog.author === "yara" )} title = "Yara's blogs" />
-    const [blogs, setBlogs] = useState([
-        {title:'Machine learning introduction', body: 'hey......', author:'yara', id:1},
-        {title:'Machine learning introduction', body: 'hey......', author:'sara', id:2},
-        {title:'Machine learning introduction', body: 'hey......', author:'yara', id:3}
+     // <button onClick={() => setName("lamia")}>change name</button>
 
-    ])  
+    const [blogs, setBlogs] = useState(null)  
     const [name, setName] = useState('yara')
-    const handleDelete = (id) => {
+    /*const handleDelete = (id) => {
         //set new value of blogs to all except the id one deleted 
         const newblogs = blogs.filter(blog=> blog.id !== id )
         setBlogs(newblogs)
-    }
-
+    }*/
     useEffect(() => {
-        console.log("useeffect runs")
+        //can use async function and await to fitch
+        //get request
+        //its asynchronis
+        setTimeout(() => {
+            fetch('http://localhost:8000/blogs') //return a promise
+        .then(res => {
+            return res.json() //its asynchronis
 
-    }, [name]); 
+        }) //access promise
+        .then( (data) => {
+             setBlogs(data)
+        })
+        }, 2000);
+        
+
+    }, []);
+    //conditunal rending: 2nd thing will run only id 1st is true
     return ( 
        <div className="home">
-            <Blog blogs ={blogs} title = "All blogs" handleDelete = {handleDelete}/>
-            <h2>{name}</h2>
-            <button onClick={() => setName("lamia")}>change name</button>
+            { blogs && <Blog blogs ={blogs} title = "All blogs" />}
        </div>
      );
 }
