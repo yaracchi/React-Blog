@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Blog from './BlogList';
 
 
@@ -14,17 +14,31 @@ const Home = () => {
      <button onClick = {handleClick}>click me</button>
      */
      //const [name, setName] = useState('yara');
+     //<Blog blogs ={blogs.filter( (blog) => blog.author === "yara" )} title = "Yara's blogs" />
+     
      const [blogs, setBlogs] = useState([
         {title:'Machine learning introduction', body: 'hey......', author:'yara', id:1},
-        {title:'Machine learning introduction', body: 'hey......', author:'yara', id:2},
+        {title:'Machine learning introduction', body: 'hey......', author:'sara', id:2},
         {title:'Machine learning introduction', body: 'hey......', author:'yara', id:3}
 
     ])  
-    return ( 
-    
-       <Blog blogs ={blogs} title = "All blogs" />
-       <Blog blogs ={blogs.filter( (blog) => blog.author=== "yara")} title = "All blogs" />
 
+    const [Name, setName] = useState('yara')
+    const handleDelete = (id) => {
+        //set new value of blogs to all except the id one deleted 
+        const newblogs = blogs.filter(blog=> blog.id !== id )
+        setBlogs(newblogs)
+    }
+
+    useEffect(() => {
+        console.log(blogs)
+    }, [Name]); 
+    return ( 
+       <div className="home">
+            <Blog blogs ={blogs} title = "All blogs" handleDelete = {handleDelete}/>
+            <button>change name</button>
+       </div>
+      
      );
 }
  
