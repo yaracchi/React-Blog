@@ -18,7 +18,8 @@ const Home = () => {
      // <button onClick={() => setName("lamia")}>change name</button>
 
     const [blogs, setBlogs] = useState(null)  
-    const [name, setName] = useState('yara')
+    const [isPending,setIsPending] = useState(true)
+    //const [name, setName] = useState('yara')
     /*const handleDelete = (id) => {
         //set new value of blogs to all except the id one deleted 
         const newblogs = blogs.filter(blog=> blog.id !== id )
@@ -28,7 +29,7 @@ const Home = () => {
         //can use async function and await to fitch
         //get request
         //its asynchronis
-        setTimeout(() => {
+        setTimeout(() => { //simulate a real get request that takes time
             fetch('http://localhost:8000/blogs') //return a promise
         .then(res => {
             return res.json() //its asynchronis
@@ -36,14 +37,16 @@ const Home = () => {
         }) //access promise
         .then( (data) => {
              setBlogs(data)
+             setIsPending(false)
         })
-        }, 2000);
+        }, 1000);
         
 
     }, []);
     //conditunal rending: 2nd thing will run only id 1st is true
     return ( 
        <div className="home">
+            {isPending && <div>is loading...</div> }
             { blogs && <Blog blogs ={blogs} title = "All blogs" />}
        </div>
      );
