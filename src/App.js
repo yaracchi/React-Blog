@@ -1,19 +1,29 @@
 import Navbar from './Navbar';
 import Home from './Home';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   const name = "yara";
   const goal = "i will master react js"
   var array_goal = ["blog, ","portfolio, ","food app, ","pet journaling", "personal budget"];
   const link = "http://localhost:3000/"
-
+  //router surround our entire application so all component inside it have access to route
+  //switch where we want our page contetnt to go when we go to different pages
+  //create a route for each page that we have
+  //the navbar always shows so itrs outside
   return (
-    <div className="App">
-      <Navbar />
-      <div className="conetnt">
-         <Home />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="conetnt">
+           <Switch>
+             <Route path ="/">
+                  <Home />
+             </Route>
+           </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
