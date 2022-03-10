@@ -12,10 +12,10 @@ const Blog = ({blogs, title}) => {
             <div className="blog" key={blog.id}>
                 <Link to ={`/blogs/${blog.id}`}>
                 <h2>{blog.title}</h2>   
-                <p> written by {blog.body }</p>
+                <p>{blog.body }</p>
                 </Link>
                
-                <p>{blog.author}</p>
+                <p> written by {blog.author}</p>
             </div>
         )) } 
        </div>
