@@ -5,12 +5,25 @@ const Create = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('')
+    const [isPending, setIsPending] = useState(false)//when submit the form become true
     const handleSubmit = (e) => {
         //prevent the default action to refresh the page when submit
         e.preventDefault()
         const blog = {title, body, author}
-        //here send a post request to add the enw object to our data
-        console.log(blog)
+        //set it true when we submit, means it loads what we gave as data
+        setIsPending(true)
+        
+        //here send a post request to add the enw object to our data file
+       //can add this part to fetch hook
+        fetch('http://localhost:8000/blogs', { //endpoint we need to use to make a post request
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},//we sending Json data with the methode request
+            body: JSON.stringify(blog) //the actuel data we sendign with this requets
+        }) /////this is asychronist bloc
+        .then(() => {
+            console.log("new blog added")
+            setIsPending(false)//when compleet uploading
+        })
     }
 
     return (  
@@ -38,7 +51,9 @@ const Create = () => {
                     <option value="lamia">lamia</option>
                 </select>
 
-                <button> Add blog</button>
+                { !isPending && <button> Add blog</button>}
+                { isPending && <button> Adding blog...</button>}
+
             </form>
         </div>
     );
