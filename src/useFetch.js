@@ -7,11 +7,11 @@ const useFetch = (url) => {
     const [error,setError] = useState(null)//want to output it to the browser=> store in state
    
     useEffect(() => {
+        const abortCont = new AbortController();//used to abort/stop/pause a fetch when needed
         //can use async function and await to fitch
-        //get request
-        //its asynchronis
+        //get request        //its asynchronis
         setTimeout(() => { //simulate a real get request that takes time
-            fetch(url) //return a promise
+            fetch(url, { signal : abortCont.signal}) //return a promise
                 .then(res => {
                     
                     if(!res.ok){//check the reqponse object to see if there is any error
@@ -27,10 +27,16 @@ const useFetch = (url) => {
                 })
                 .catch(err =>
                      {
-                        setError(err.message)
-                        setIsPending(false)
+                         if ( err.name === 'AbortError') {
+                         //recognize the abort error, we dont update state
+                            console.log("abort fetch")
+                         }else {
+                            setError(err.message)
+                            setIsPending(false)
+                         }
                     })
         }, 1000);
+        return () => abortCont.abort() //throws an err in case we stoped the fetch and it throws it to be catched
         
 
     }, [url]);

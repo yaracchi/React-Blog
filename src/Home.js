@@ -16,7 +16,6 @@ const Home = () => {
      //const [name, setName] = useState('yara');
      //<Blog blogs ={blogs.filter( (blog) => blog.author === "yara" )} title = "Yara's blogs" />
      // <button onClick={() => setName("lamia")}>change name</button>
-
      //const [name, setName] = useState('yara')
     /*const handleDelete = (id) => {
         //set new value of blogs to all except the id one deleted 
