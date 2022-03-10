@@ -5,12 +5,18 @@ const Create = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('')
-
+    const handleSubmit = (e) => {
+        //prevent the default action to refresh the page when submit
+        e.preventDefault()
+        const blog = {title, body, author}
+        //here send a post request to add the enw object to our data
+        console.log(blog)
+    }
 
     return (  
         <div className="create"> 
             <h2> Add a new blog</h2>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <label>Blog title</label>
                 <input
                  type="text"
