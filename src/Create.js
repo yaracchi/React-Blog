@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom"; 
 
 const Create = () => {
 
@@ -6,6 +7,9 @@ const Create = () => {
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('')
     const [isPending, setIsPending] = useState(false)//when submit the form become true
+    const history = useHistory() //go back to a certain level to redirect the user to a new route
+   
+   
     const handleSubmit = (e) => {
         //prevent the default action to refresh the page when submit
         e.preventDefault()
@@ -23,7 +27,10 @@ const Create = () => {
         .then(() => {
             console.log("new blog added")
             setIsPending(false)//when compleet uploading
-        })
+              // history.go(-1)
+            history.push('/') //redirect to home page
+        }) 
+     
     }
 
     return (  

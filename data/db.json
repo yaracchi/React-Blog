@@ -29,6 +29,18 @@
       "body": "yuki food routine",
       "author": "",
       "id": 5
+    },
+    {
+      "title": "redirect to home ",
+      "body": "this is a routing test of history.push",
+      "author": "",
+      "id": 6
+    },
+    {
+      "title": "test redirect to home again",
+      "body": "re test",
+      "author": "",
+      "id": 7
     }
   ]
 }
