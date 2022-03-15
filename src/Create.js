@@ -5,7 +5,7 @@ const Create = () => {
 
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
-    const [author, setAuthor] = useState('')
+    const [author, setAuthor] = useState('yara')
     const [isPending, setIsPending] = useState(false)//when submit the form become true
     const history = useHistory() //go back to a certain level to redirect the user to a new route
    
@@ -51,14 +51,15 @@ const Create = () => {
 
                 <label>Blog author</label>
                 <select 
-                value = {author}
-                onChange={(e) => setAuthor(e.target.value)}
+                 value = {author}
+                 onChange={(e) => setAuthor(e.target.value)}
                 >
                     <option value="yara">yara</option>
                     <option value="lamia">lamia</option>
                 </select>
 
                 { !isPending && <button> Add blog</button>}
+                {author}
                 { isPending && <button> Adding blog...</button>}
 
             </form>

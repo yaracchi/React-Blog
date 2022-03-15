@@ -9,7 +9,7 @@ function App() {
   //const name = "yara";
   //const goal = "i will master react js"
   //var array_goal = ["blog, ","portfolio, ","food app, ","pet journaling", "personal budget"];
-  const link = "http://localhost:3000/"
+ // const link = "http://localhost:3000/"
   //router surround our entire application so all component inside it have access to route
   //switch where we want our page contetnt to go when we go to different pages
   //create a route for each page that we have

@@ -7,28 +7,28 @@
       "id": 2
     },
     {
-      "title": "'Machine learning introduction'",
-      "body": "'hey......'",
-      "author": "'hadjer'",
-      "id": 3
-    },
-    {
-      "title": "yuki food",
-      "body": "yuki food routine",
-      "author": "",
-      "id": 5
-    },
-    {
-      "title": "redirect to home ",
-      "body": "this is a routing test of history.push",
-      "author": "",
-      "id": 6
-    },
-    {
       "title": "test redirect to home again",
       "body": "re test",
       "author": "",
       "id": 7
+    },
+    {
+      "title": "my first react project",
+      "body": "i just finished  my first react project. i learned how to handle components, states, effect for action, routing, redirecting pages with useHistory, fetching data to show it, deleting data and many other things. ALHAMDOULILLAH ",
+      "author": "",
+      "id": 8
+    },
+    {
+      "title": "functions to add to my react page",
+      "body": "i want to add the option of EDITING a blog, a searching bar to search for a certain blog using a title",
+      "author": "",
+      "id": 9
+    },
+    {
+      "title": "fixing the Author state",
+      "body": "the Author state was not updating, so i initialized it by useState and not left it empty",
+      "author": "lamia",
+      "id": 10
     }
   ]
 }
